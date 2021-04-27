@@ -12,6 +12,10 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        if(FirebaseAuth.getInstance().currentUser != null){
+            startActivity(Intent(this@LoginActivity,MainActivity::class.java))
+            finish()
+        }
         findViewById<Button>(R.id.login_btn).setOnClickListener {
             val email = findViewById<EditText>(R.id.email_signin).text.toString()
             val password = findViewById<EditText>(R.id.password_signin).text.toString()
