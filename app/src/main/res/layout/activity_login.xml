@@ -78,6 +78,14 @@
                 android:id="@+id/open_register"
                 android:text="@string/register"
                 android:textSize="30sp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/open_forgot_password"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_gravity="start"
+                android:layout_margin="10dp"
+                android:text="@string/forgot_password" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
