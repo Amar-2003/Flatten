@@ -46,12 +46,16 @@ class RegisterActivity : AppCompatActivity() {
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password).addOnCompleteListener { task1 ->
             val data = hashMapOf("Name" to name,
                                     "Contact-Number" to contactNumber)
-            val userId = FirebaseAuth.getInstance().currentUser.uid.toString()
-            Firebase.firestore.collection("Users").document(userId).set(data).addOnCompleteListener { task2 ->
+
+            Firebase.firestore.collection("Users").document(FirebaseAuth.getInstance().currentUser.uid.toString()).set(data).addOnCompleteListener { task2 ->
                 if(task1.isSuccessful){
                     Toast.makeText(this@RegisterActivity,"Registeration Successful",Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this@RegisterActivity,MainActivity::class.java))
                     finish()
+                }
+                else{
+                    Toast.makeText(this@RegisterActivity,"Registeration Failed",Toast.LENGTH_SHORT).show()
+
                 }
             }
         }
