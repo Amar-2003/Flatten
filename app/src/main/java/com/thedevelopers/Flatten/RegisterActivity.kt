@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import android.widget.Toast.*
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -44,19 +45,25 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun Register(email: String, password: String, contactNumber: String, name: String) {
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password).addOnCompleteListener { task1 ->
-            val data = hashMapOf("Name" to name,
-                                    "Contact-Number" to contactNumber)
+            if(task1.isSuccessful){
+                val data = hashMapOf("Name" to name,
+                    "Contact-Number" to contactNumber)
 
-            Firebase.firestore.collection("Users").document(FirebaseAuth.getInstance().currentUser.uid.toString()).set(data).addOnCompleteListener { task2 ->
-                if(task1.isSuccessful){
-                    Toast.makeText(this@RegisterActivity,"Registeration Successful",Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this@RegisterActivity,MainActivity::class.java))
-                    finish()
-                }
-                else{
-                    Toast.makeText(this@RegisterActivity,"Registeration Failed",Toast.LENGTH_SHORT).show()
+                FirebaseFirestore.getInstance().collection("Users").document(FirebaseAuth.getInstance().currentUser.uid).set(data).addOnCompleteListener { task2 ->
+                    if(task2.isSuccessful){
+                        Toast.makeText(this@RegisterActivity,"Registeration Successful",Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this@RegisterActivity,MainActivity::class.java))
+                        finish()
+                    }
+                    else{
+                        Toast.makeText(this@RegisterActivity,"Registeration Failed(Database)",Toast.LENGTH_SHORT).show()
 
+                    }
                 }
+            }
+            else{
+                Toast.makeText(this@RegisterActivity,"Registeration Failed(AUthentication)",Toast.LENGTH_SHORT).show()
+
             }
         }
     }
