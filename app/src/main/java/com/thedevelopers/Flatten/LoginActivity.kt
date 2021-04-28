@@ -13,6 +13,9 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        findViewById<TextView>(R.id.open_forgot_password).setOnClickListener {
+            startActivity(Intent(this@LoginActivity,ForgotPasswordActivity::class.java))
+        }
         if(FirebaseAuth.getInstance().currentUser != null){
             startActivity(Intent(this@LoginActivity,MainActivity::class.java))
             finish()
