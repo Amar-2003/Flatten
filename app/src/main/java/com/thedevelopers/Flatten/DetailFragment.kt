@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.DocumentChange
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class DetailFragment : Fragment() {
@@ -22,12 +24,27 @@ class DetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //Declaring the Array of Hashmap
+        val detailValues = ArrayList<HashMap<String, String>>()
         // Inflate the layout for this fragment
         val root= inflater.inflate(R.layout.fragment_detail, container, false)
         val recyclerView:RecyclerView=root.findViewById(R.id.recyclerViewDetails)
         recyclerView.layoutManager=LinearLayoutManager(context)
-        val itemAdapter=ItemAdapter(this,getItemsList())
-        recyclerView.adapter=(itemAdapter)
+        val db = FirebaseFirestore.getInstance()
+        db.collection("Details").addSnapshotListener { value, error ->
+            if(error == null){
+                if(value != null){
+                    for(change in value.documentChanges){
+                        if(change.type == DocumentChange.Type.ADDED){
+                            detailValues.add(change.document.data as HashMap<String, String>)
+                            val itemAdapter=ItemAdapter(this,detailValues)
+                            recyclerView.adapter = itemAdapter
+                        }
+                    }
+                }
+            }
+        }
+
 
 
         return root

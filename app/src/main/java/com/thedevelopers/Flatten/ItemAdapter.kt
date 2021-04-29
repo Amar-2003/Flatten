@@ -7,17 +7,17 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
-class ItemAdapter(val context: DetailFragment, val items:ArrayList<String>): RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
+class ItemAdapter(val context: DetailFragment, val items:ArrayList<HashMap<String, String>>): RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemAdapter.ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.custom_item_row_details,parent,false))
     }
 
     override fun onBindViewHolder(holder: ItemAdapter.ViewHolder, position: Int) {
         val item=items.get(position)
-        holder.name.text=item
-        holder.mobile.text=item
-        holder.address.text=item
-        holder.help.text=item
+        holder.name.text=item["Name"]
+        holder.mobile.text=item["Mobile"]
+        holder.address.text=item["Address"]
+        holder.help.text=item["Help"]
     }
 
     override fun getItemCount(): Int {
