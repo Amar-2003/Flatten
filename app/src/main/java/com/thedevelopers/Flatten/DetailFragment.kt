@@ -49,15 +49,7 @@ class DetailFragment : Fragment() {
 
         return root
     }
-    private fun getItemsList(): ArrayList<String> {
-        val list = ArrayList<String>()
 
-        for(i in 1..15){
-            list.add("Item $i")
-        }
-
-        return list
-    }
 
 
 }
