@@ -22,10 +22,11 @@ class ChatFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        val chats = ArrayList<HashMap<String,String>>()
         val root =inflater.inflate(R.layout.fragment_chat, container, false)
         val recyclerView: RecyclerView =root.findViewById(R.id.recyclerViewChat)
         recyclerView.layoutManager= LinearLayoutManager(context)
-        val chatAdapter=ChatAdapter(this,getItemsList())
+        val chatAdapter=ChatAdapter(this,chats)
         recyclerView.adapter = chatAdapter
         return root
     }

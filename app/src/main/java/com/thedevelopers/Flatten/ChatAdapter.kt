@@ -7,14 +7,14 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
-class ChatAdapter(val context: ChatFragment, val items:ArrayList<String>): RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
+class ChatAdapter(val context: ChatFragment, val items:ArrayList<HashMap<String,String>>): RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatAdapter.ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.custom_item_row_chat,parent,false))
     }
 
     override fun onBindViewHolder(holder: ChatAdapter.ViewHolder, position: Int) {
         val item=items.get(position)
-        holder.textview.text=item
+        holder.message.text=item["message"]
 
     }
 
@@ -23,6 +23,6 @@ class ChatAdapter(val context: ChatFragment, val items:ArrayList<String>): Recyc
     }
     class ViewHolder(view: View): RecyclerView.ViewHolder(view){
 
-        val textview:TextView=view.findViewById(R.id.textview)
+        val message:TextView=view.findViewById(R.id.textview)
     }
 }
