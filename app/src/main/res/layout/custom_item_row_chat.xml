@@ -6,8 +6,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        android:padding="40dp"
+        android:id="@+id/message_card_view"
         android:layout_margin="30dp"
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -15,7 +14,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:background="@color/blue_light"
-            android:padding="30dp"
+            android:padding="10dp"
             android:layout_height="wrap_content">
             <TextView
                 android:layout_width="wrap_content"
@@ -25,7 +24,14 @@
                 android:id="@+id/chat_sender"
                 android:text="@string/sender"/>
             <TextView
-                android:id="@+id/textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/timestamp_chat"
+                android:text="@string/time"/>
+            <TextView
+                android:id="@+id/message"
                 android:layout_width="match_parent"
                 app:layout_constraintTop_toBottomOf="@id/chat_sender"
                 android:layout_marginTop="20dp"
