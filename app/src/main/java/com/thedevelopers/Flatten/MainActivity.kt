@@ -28,8 +28,3 @@ import com.google.firebase.auth.FirebaseAuth
         }
     }
 }
-class MyApplication: Application() {
-    companion object {
-        var globaluid = FirebaseAuth.getInstance().currentUser.uid.toString()
-    }
-}

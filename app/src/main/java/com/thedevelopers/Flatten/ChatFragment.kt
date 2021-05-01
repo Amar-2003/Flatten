@@ -63,16 +63,16 @@ class ChatFragment : Fragment() {
         root.findViewById<ImageButton>(R.id.chat_send_button).setOnClickListener {
             val message = root.findViewById<EditText>(R.id.chat_edit_text).text.toString()
             if(message != null){
-                db.collection("User").document(FirebaseAuth.getInstance().currentUser.uid).get().addOnSuccessListener { document ->
+                db.collection("Users").document(FirebaseAuth.getInstance().currentUser.uid).get().addOnSuccessListener { document ->
                     if(document != null){
                         val userData = document.data
                         val name = userData?.get("Name")
 
-                        val currentTime = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date()).toString()
+                        val currentTime = SimpleDateFormat("yyyyMMddHHmmss").format(Date()).toString()
                         val messageData = hashMapOf("sender" to name,
                                 "message" to message,
                                 "time" to currentTime,
-                                    "uid" to FirebaseAuth.getInstance().currentUser.uid.toString())
+                                    "uid" to FirebaseAuth.getInstance().currentUser.uid)
 
                         db.collection("Chats").document(Date().time.toString()).set(messageData)
                         root.findViewById<EditText>(R.id.chat_edit_text).text.clear()

@@ -6,8 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.auth.FirebaseAuth
-import com.thedevelopers.Flatten.MyApplication.Companion.globaluid
 
 class ChatAdapter(val context: ChatFragment, val items:ArrayList<HashMap<String,String>>): RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatAdapter.ViewHolder {
@@ -18,10 +16,12 @@ class ChatAdapter(val context: ChatFragment, val items:ArrayList<HashMap<String,
         val item=items.get(position)
         holder.message.text=item["message"]
         holder.sender.text = item["sender"]
-
-        holder.timestamp.text = item["time"].toString()
-
-
+        val time = item["time"].toString()
+        val month = time.substring(4,6)
+        val date = time.substring(6,8)
+        val hour = time.substring(8,10)
+        val minute = time.substring(10,12)
+        holder.timeStamp.text = hour + ":" + minute + "  " + date + "-" + month
     }
 
     override fun getItemCount(): Int {
@@ -30,8 +30,8 @@ class ChatAdapter(val context: ChatFragment, val items:ArrayList<HashMap<String,
     class ViewHolder(view: View): RecyclerView.ViewHolder(view){
 
         val message:TextView=view.findViewById(R.id.message)
-        val sender:TextView = view.findViewById(R.id.chat_sender)
-        val timestamp: TextView = view.findViewById(R.id.timestamp_chat)
         val cardView: CardView = view.findViewById(R.id.message_card_view)
+        val sender: TextView = view.findViewById(R.id.message_sender)
+        val timeStamp: TextView = view.findViewById(R.id.time_stamp)
     }
 }
