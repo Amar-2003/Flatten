@@ -3,6 +3,7 @@ package com.thedevelopers.Flatten
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
@@ -30,6 +31,7 @@ class ItemAdapter(val context: DetailFragment, val items:ArrayList<HashMap<Strin
         val address:TextView=view.findViewById(R.id.address_item)
         val help:TextView=view.findViewById(R.id.help_item)
         val cardViewItem: CardView =view.findViewById(R.id.card_view_item)
+        
 
     }
 }
