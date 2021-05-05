@@ -43,7 +43,9 @@ class ItemAdapter(val context: DetailFragment, val items:ArrayList<HashMap<Strin
                                 .collection("Details")
                                 .document(requestId)
                                 .delete()
-                                .addOnSuccessListener {  Toast.makeText(view?.context,"The changes will be seen after you restart the app",Toast.LENGTH_SHORT).show()}
+                                .addOnSuccessListener {  Toast
+                                        .makeText(view?.context,"The changes will be seen after you refresh or restart the app",Toast.LENGTH_SHORT)
+                                        .show()}
                     }
                 }
                 builder.setNegativeButton("No"){dialog, which ->
