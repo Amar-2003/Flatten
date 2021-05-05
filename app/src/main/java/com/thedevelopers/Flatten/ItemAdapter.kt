@@ -1,5 +1,6 @@
 package com.thedevelopers.Flatten
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -9,9 +10,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class ItemAdapter(val context: DetailFragment, val items:ArrayList<HashMap<String, String>>): RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemAdapter.ViewHolder {
@@ -25,9 +29,27 @@ class ItemAdapter(val context: DetailFragment, val items:ArrayList<HashMap<Strin
         holder.mobile.text= MobileNumber
         holder.address.text=item["Address"]
         holder.help.text=item["Help"]
+        val requestId = item["RequestId"].toString()
+        val requester = item["Requester"]
         holder.requestCloseButton.setOnClickListener (object : View.OnClickListener{
             override fun onClick(view: View?) {
+                val builder = AlertDialog.Builder(view?.context)
+                builder.setTitle("Flatten")
+                builder.setMessage("Are you sure to Delete the request")
+                builder.setPositiveButton("Yes"){ dialog, which ->
+                    val currentUid = FirebaseAuth.getInstance().currentUser.uid.toString()
+                    if(requester == currentUid){
+                        FirebaseFirestore.getInstance()
+                                .collection("Details")
+                                .document(requestId)
+                                .delete()
+                                .addOnSuccessListener {  Toast.makeText(view?.context,"The changes will be seen after you restart the app",Toast.LENGTH_SHORT).show()}
+                    }
+                }
+                builder.setNegativeButton("No"){dialog, which ->
 
+                }
+                builder.show()
             }
         })
         holder.callButton.setOnClickListener(object : View.OnClickListener{
