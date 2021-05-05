@@ -44,14 +44,16 @@ class requestFragment : Fragment() {
                 Toast.makeText(context,"Please Enter the help needed",Toast.LENGTH_SHORT).show()
             }
             else{
+                val RequestId = System.currentTimeMillis().toString()
                 val helpHashMap = hashMapOf("Name" to name
                 ,"Mobile" to mobileNumber
                 ,"Address" to address
                 ,"Help" to help
-                ,"Requester" to FirebaseAuth.getInstance().currentUser.uid.toString())
+                ,"Requester" to FirebaseAuth.getInstance().currentUser.uid.toString()
+                ,"RequestId" to RequestId)
                 FirebaseFirestore.getInstance()
                         .collection("Details")
-                        .document(System.currentTimeMillis().toString())
+                        .document(RequestId)
                         .set(helpHashMap).addOnCompleteListener { task ->
                             if(task.isSuccessful){
                                 Toast.makeText(context,"Request submitted successfully",Toast.LENGTH_SHORT).show()
