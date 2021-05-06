@@ -26,10 +26,10 @@ class LoginActivity : AppCompatActivity() {
         findViewById<Button>(R.id.login_btn).setOnClickListener {
             val email = findViewById<EditText>(R.id.email_signin).text.toString()
             val password = findViewById<EditText>(R.id.password_signin).text.toString()
-            if(email == null){
+            if(email == ""){
                 Toast.makeText(this@LoginActivity,"Please Enter the Email Address",Toast.LENGTH_SHORT).show()
             }
-            else if(password == null){
+            else if(password == ""){
                 Toast.makeText(this@LoginActivity,"Please enter your password",Toast.LENGTH_SHORT).show()
             }
             else{
