@@ -23,11 +23,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:text="@string/time"
+                android:textColor="#212121"
+                android:textSize="18sp"
                 android:id="@+id/time_stamp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sender"
+                android:textSize="18sp"
+                android:textColor="#212121"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/time_stamp"
                 android:id="@+id/message_sender"/>
@@ -37,7 +41,8 @@
                 android:layout_width="match_parent"
                 app:layout_constraintTop_toBottomOf="@id/message_sender"
                 android:layout_marginTop="20dp"
-                android:textSize="20sp"
+                android:textSize="18sp"
+                android:textColor="#212121"
                 app:layout_constraintStart_toStartOf="parent"
                 android:text="@string/message"
                 android:layout_height="wrap_content"/>

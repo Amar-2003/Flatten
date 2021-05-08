@@ -27,12 +27,13 @@
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:textSize="30sp"
-                android:textColor="@color/black"
+                android:textColor="@color/text_color"
                 android:text="@string/register"/>
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/text_color"
                 app:boxStrokeColor="@color/black"
                 app:hintTextColor="@color/black"
                 android:layout_marginTop="20dp">
@@ -41,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/register_name"
-                android:textColor="@color/black"
+                android:textColor="@color/text_color"
                 android:layout_marginTop="20dp"
                 android:hint="@string/name" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -57,7 +58,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/register_email"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_color"
                     android:layout_marginTop="20dp"
                     android:hint="@string/email" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -66,6 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:boxStrokeColor="@color/black"
+                android:textColor="@color/text_color"
                 app:hintTextColor="@color/black"
                 app:passwordToggleEnabled="true"
                 android:layout_marginTop="20dp">
@@ -74,7 +76,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/register_password"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_color"
                     android:layout_marginTop="20dp"
                     android:inputType="textPassword"
                     android:hint="@string/password" />
@@ -84,6 +86,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:boxStrokeColor="@color/black"
+                android:textColor="@color/text_color"
                 app:hintTextColor="@color/black"
                 android:layout_marginTop="20dp">
 
@@ -91,7 +94,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/register_contact"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_color"
                     android:layout_marginTop="20dp"
                     android:hint="@string/contact_number" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -101,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/register"
                 android:id="@+id/register_button"
-                android:textColor="@color/black"
+                android:textColor="@color/text_color"
                 android:layout_gravity="center"/>
 
         </LinearLayout>

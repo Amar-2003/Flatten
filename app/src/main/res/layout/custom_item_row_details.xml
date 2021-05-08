@@ -22,12 +22,14 @@
                 android:id="@+id/name_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/text_color"
                 android:textIsSelectable="true"
                 android:text="Name"/>
             <TextView
                 android:id="@+id/mobile_item"
                 android:layout_width="wrap_content"
                 android:textIsSelectable="true"
+                android:textColor="@color/text_color"
                 android:layout_height="wrap_content"
                 android:text="Mobile"/>
             <TextView
@@ -35,11 +37,13 @@
                 android:layout_width="wrap_content"
                 android:textIsSelectable="true"
                 android:layout_height="wrap_content"
+                android:textColor="@color/text_color"
                 android:text="Address"/>
             <TextView
                 android:id="@+id/help_item"
                 android:layout_width="wrap_content"
                 android:textIsSelectable="true"
+                android:textColor="@color/text_color"
                 android:layout_height="wrap_content"
                 android:text="Help"/>
             <LinearLayout

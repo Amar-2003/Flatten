@@ -26,6 +26,7 @@
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:gravity="center"
+               android:textColor="@color/text_color"
                android:text="Welcome"
                android:textSize="20dp" />
 
@@ -34,11 +35,13 @@
                android:layout_height="wrap_content"
                android:gravity="center"
                android:text="Please Enter the following details"
+               android:textColor="@color/text_color"
                android:textSize="12dp" />
 
            <com.google.android.material.textfield.TextInputLayout
                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                android:layout_width="match_parent"
+               android:textColor="@color/text_color"
                android:layout_height="wrap_content"
                android:layout_marginTop="20dp">
 
@@ -46,6 +49,7 @@
                    android:id="@+id/user_name"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
+                   android:textColor="@color/text_color"
                    android:layout_marginTop="20dp"
                    android:hint="Enter your name" />
            </com.google.android.material.textfield.TextInputLayout>
@@ -54,12 +58,14 @@
                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
+               android:textColor="@color/text_color"
                android:layout_marginTop="20dp">
 
                <androidx.appcompat.widget.AppCompatEditText
                    android:id="@+id/address"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
+                   android:textColor="@color/text_color"
                    android:layout_marginTop="20dp"
                    android:hint="Enter your address" />
            </com.google.android.material.textfield.TextInputLayout>
@@ -68,12 +74,14 @@
                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
+               android:textColor="@color/text_color"
                android:layout_marginTop="20dp">
 
                <androidx.appcompat.widget.AppCompatEditText
                    android:id="@+id/mobile_number"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
+                   android:textColor="@color/text_color"
                    android:layout_marginTop="20dp"
                    android:hint="Enter your mobile number" />
            </com.google.android.material.textfield.TextInputLayout>
@@ -81,12 +89,14 @@
                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
+               android:textColor="@color/text_color"
                android:layout_marginTop="20dp">
 
                <androidx.appcompat.widget.AppCompatEditText
                    android:id="@+id/help"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
+                   android:textColor="@color/text_color"
                    android:layout_marginTop="20dp"
                    android:hint="Enter the help needed" />
            </com.google.android.material.textfield.TextInputLayout>
@@ -95,6 +105,7 @@
                android:layout_width="wrap_content"
                android:layout_height="match_parent"
                android:layout_gravity="center"
+               android:textColor="@color/text_color"
                android:id="@+id/request_submit"
                android:layout_marginTop="20dp"
                android:text="Submit"/>
