@@ -13,6 +13,7 @@
         android:textColor="@color/text_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:background="@android:color/transparent"
         android:id="@+id/signout_test"/>
 
 
