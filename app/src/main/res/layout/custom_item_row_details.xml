@@ -18,6 +18,10 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/browser_actions_context_menu_min_padding"
             android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name" />
 
             <TextView
                 android:id="@+id/name_item"
@@ -27,6 +31,11 @@
                 android:textIsSelectable="true"
                 android:text="Name"/>
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/contact_number"/>
+            <TextView
                 android:id="@+id/mobile_item"
                 android:layout_width="wrap_content"
                 android:textIsSelectable="true"
@@ -34,12 +43,22 @@
                 android:layout_height="wrap_content"
                 android:text="Mobile"/>
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/address"/>
+            <TextView
                 android:id="@+id/address_item"
                 android:layout_width="wrap_content"
                 android:textIsSelectable="true"
                 android:layout_height="wrap_content"
                 android:textColor="@color/text_color"
-                android:text="Address"/>
+                android:text="@string/address"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/help_needed"/>
             <TextView
                 android:id="@+id/help_item"
                 android:layout_width="wrap_content"

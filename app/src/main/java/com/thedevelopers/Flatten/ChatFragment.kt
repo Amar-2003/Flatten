@@ -58,6 +58,7 @@ class ChatFragment : Fragment() {
                             chats.add(change.document.data as HashMap<String, String>)
                             val chatAdapter=ChatAdapter(this,chats)
                             recyclerView.adapter = chatAdapter
+                            recyclerView.scrollToPosition((chatAdapter.itemCount)-1)
                         }
                     }
                 }

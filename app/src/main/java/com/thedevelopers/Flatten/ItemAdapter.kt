@@ -47,6 +47,9 @@ class ItemAdapter(val context: DetailFragment, val items:ArrayList<HashMap<Strin
                                         .makeText(view?.context,"The changes will be seen after you refresh or restart the app",Toast.LENGTH_SHORT)
                                         .show()}
                     }
+                    else{
+                        Toast.makeText(view?.context,"You can only close requests which are made by you",Toast.LENGTH_SHORT).show()
+                    }
                 }
                 builder.setNegativeButton("No"){dialog, which ->
 
